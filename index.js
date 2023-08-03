@@ -22,3 +22,6 @@ const port = 443;
 server.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
+app.use((req, res, next) => {
+  res.status(404).render('404');
+});
