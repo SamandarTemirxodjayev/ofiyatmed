@@ -4,3 +4,6 @@ exports.index = async (req, res) => {
 exports.about = async (req, res) => {
   res.render('about');
 }
+exports.contact = async (req, res) => {
+  res.render('contact');
+}
