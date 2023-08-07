@@ -26,8 +26,18 @@ exports.indexPost = async (req, res) => {
   }
 }
 exports.about = async (req, res) => {
-  res.render('about');
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('about', { info });
+  } catch (error) {
+    res.render("404");
+  }
 }
 exports.contact = async (req, res) => {
-  res.render('contact');
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('contact', { info });
+  } catch (error) {
+    res.render("404");
+  }
 }
