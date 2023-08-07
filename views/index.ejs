@@ -108,8 +108,8 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-8 align-self-center">
                                 <div class="hero-banner-two-content text-center">
-                                    <h6 class="wow animate__animated animate__fadeInUp">Dunyo Bo'ylab.</h6>
-                                    <h1 class="wow animate__animated animate__fadeInUp">Yuqori Sifat <br> Tibbiy Uskunalar</h1>
+                                    <h6 class="wow animate__animated animate__fadeInUp">Dunyo Bo'ylab</h6>
+                                    <h1 class="wow animate__animated animate__fadeInUp">Yuqori Sifat</h1>
                                     <p class="wow animate__animated animate__fadeInUp">Gray eel-catfish longnose
                                         whiptail catfish smalleye squaretail queen danio unicorn fish <br>
                                         shortnose greeneye fusilier fish silver carp nibbler sharksucker tench lookdown
@@ -406,7 +406,7 @@
                 <div class="col-md-3 col-sm-6 wow animate__animated animate__fadeInUp">
                     <div class="counter-items">
                         <div class="counter-icon">
-                            <i class="fal fa-scalpel"></i>
+                            <i class="fal fa-scalpel" style="color: #fff;"></i>
                         </div>
                         <div class="number-number">
                             <span class="counter">500</span>
@@ -417,7 +417,7 @@
                 <div class="col-md-3 col-sm-6 wow animate__animated animate__fadeInUp">
                     <div class="counter-items">
                         <div class="counter-icon">
-                            <i class="fal fa-user-nurse"></i>
+                            <i class="fal fa-user-nurse" style="color: #fff;"></i>
                         </div>
                         <div class="number-number">
                             <span class="counter">100</span>
@@ -428,7 +428,7 @@
                 <div class="col-md-3 col-sm-6 wow animate__animated animate__fadeInUp">
                     <div class="counter-items">
                         <div class="counter-icon">
-                            <i class="fal fa-award"></i>
+                            <i class="fal fa-award" style="color: #fff;"></i>
                         </div>
                         <div class="number-number">
                             <span class="counter">400</span>
@@ -439,7 +439,7 @@
                 <div class="col-md-3 col-sm-6 wow animate__animated animate__fadeInUp">
                     <div class="counter-items">
                         <div class="counter-icon">
-                            <i class="fab fa-buromobelexperte"></i>
+                            <i class="fab fa-buromobelexperte" style="color: #fff;"></i>
                         </div>
                         <div class="number-number">
                             <span class="counter">30</span>
@@ -739,26 +739,21 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10 col-lg-6">
                     <div class="section-title text-center white">
-                        <h3 class="text-white wow animate__animated animate__fadeInUp">Subscribe To Newsletter</h3>
-                        <p class="text-white wow animate__animated animate__fadeInUp">Vivamus ornare feugiat orci eu
-                            faucibus. Phasellus nulla arcu, pharetra nec laoreet in, scelerisque a lectus.</p>
+                        <h3 class="text-white wow animate__animated animate__fadeInUp">Yangiliklarimizga Obuna Bo'ling</h3>
+                        <p class="text-white wow animate__animated animate__fadeInUp">Yangilik va Aksiyalarimizdan xabardor bo'lish uchun o'z elektron pochtangizni yozib qoldiring</p>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10 col-lg-6 wow animate__animated animate__fadeInUp">
-                    <form id="subscribe-form" action="#" method="post">
+                    <form id="subscribe-form" action="/" method="post">
                         <div class="input-group mb-3">
                             <input type="email" name="email" class="form-control field-subscribe"
-                                placeholder="Enter Your Email Address" required />
+                                placeholder="Elektron Pochta manzilini kiriting." required />
                         </div>
                         <div class="subscribe-btn text-center">
-                            <button type="submit" class="button-one mb-5">Subscribe</button>
+                            <button type="submit" class="button-one mb-5">Obuna bo'lish</button>
                         </div>
-                        <p class="text-center mb-0 text-white">
-                            We don’t share your personal information with anyone or company.
-                            Check out our <a href="#"><strong>Privacy Policy</strong></a> for more information.
-                        </p>
                     </form>
                 </div>
             </div>
@@ -791,11 +786,11 @@
     <footer>
         <div class="footer-widgets">
             <div class="container">
-                <div class="row">
+                <div class="row justify-content-between">
                     <div class="col-12 col-md-6 col-lg-3 res-margin">
                         <div class="widget">
                             <p class="footer-logo">
-                                <img src="/images/logo-light.png" alt="" data-rjs="2">
+                                <h1 style="color: #fff;">OFIYAT MED</h1>
                             </p>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis non, fugit totam vel
@@ -817,6 +812,7 @@
                                 <li><a href="tel:+998951003300">Texnik yordam</a></li>
                                 <li><a href="/privacy-and-police">Maxfiylik Siyosati</a></li>
                                 <li><a href="tel:+998951003300">Hamkorlik Dasturi</a></li>
+                                <li><a href="/faq">Ko'p beriladigan savollar</a></li>
                             </ul>
                         </div>
                     </div>
@@ -827,15 +823,15 @@
                         <ul class="footer-menu footer-contact-list">
                             <li>
                                 <span>Manzil:</span>
-                                Toshkent shahri, Sergili tumani, 5 ko'chasi, 105A uy
+                                <a href="<%= info.google_address %>"><%= info.address %></a>
                             </li>
                             <li>
                                 <span>Email:</span>
-                                info@ofiyatmed.com
+                                <a href="mailto:<%= info.email %>"><%= info.email %></a>
                             </li>
                             <li>
                                 <span>Telefon Raqam:</span>
-                                <a href="tel:+998951003300">+998 95 100 33 00</a>
+                                <a href="tel:<%= info.phone %>"><%= info.phone %></a>
                             </li>
                         </ul>
                     </div>
