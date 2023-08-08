@@ -1,5 +1,6 @@
 const Emails = require("../models/Emails");
 const Info = require("../models/Info");
+const axios = require("axios");
 
 exports.index = async (req, res) => {
   try {
@@ -41,3 +42,31 @@ exports.contact = async (req, res) => {
     res.render("404");
   }
 }
+exports.contactPost = async (req, res) => {
+  const { name, phone_number, msg_subject, message } = req.body;
+
+  const botToken = '6365368968:AAFA9Pjobe3xJ1SSvKpOhNPcV5bJzJz6KYI';
+  const chatId = '@LOLvoyco467';
+
+  const messages = `Name: ${name}\nPhone: ${phone_number}\nSubject: ${msg_subject}\nText: ${message}`;
+
+  try {
+    await axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+      chat_id: chatId,
+      text: messages,
+    });
+
+    res.render('alert', { text: "Xabar Muvaffiqatli jo'natildi" });
+  } catch (error) {
+    console.error('Error sending message to Telegram:', error);
+    res.status(500).send('Error sending message to Telegram.');
+  }
+};
+exports.doctor = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('doctor', { info });
+  } catch (error) {
+    res.render("404");
+  }
+};

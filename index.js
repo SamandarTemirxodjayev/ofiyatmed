@@ -2,6 +2,7 @@ const express = require('express');
 const router = require('./routes/router');
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
+const Info = require('./models/Info');
 
 const app = express();
 
@@ -29,6 +30,11 @@ mongoose
   .catch((error) => {
     console.error("Error connecting to the database:", error);
   });
-app.use((req, res, next) => {
-  res.status(404).render('404');
+app.use(async(req, res, next) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.status(404).render('404', {info});
+  } catch (error) {
+    res.render("404");
+  }
 });
