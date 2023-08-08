@@ -53,7 +53,7 @@
 :root {
     --body-font-family: 'DM Sans', sans-serif;
     --heading-font-family: 'Poppins', sans-serif;
-    --primary-color: #0e63ff;
+    --primary-color: #407ded;
     --secondary-color: #0a0e21;
     --body-font-color: #61657E;
     --heading-font-color: #1C1C1C;
@@ -1090,6 +1090,7 @@ label {
 	align-items: center;
 	flex-wrap: wrap;
 	justify-content: flex-start;
+  margin: 0 10px;
 }
 .navbar-wrap {
 	display: flex;
@@ -1859,13 +1860,11 @@ label {
 	width: 100%;
 }
 .hero-banner-two-content h6{
-	font-weight: 700;
 	padding: 10px 26px;
+  margin-bottom: 150px;
 	display: inline-block;
 	font-size: 18px;
-	color: var(--primary-color);
-	background-color: var(--text-white);
-	font-family: var(--body-font-family);
+  opacity: 0;
 }
 .hero-banner-two-content h1{
 	font-weight: 700;
@@ -2142,7 +2141,7 @@ label {
 
 .section-title {
   text-align: center;
-  max-width: 670px;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
