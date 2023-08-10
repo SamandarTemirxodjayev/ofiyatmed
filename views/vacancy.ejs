@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Ofiyat Med - 404 xatolik</title>
-  <meta name="description" content="Ofiyat Med - 404 xatolik" />
+  <title>Ofiyat Med - Vakansiylar</title>
+  <meta name="description" content="Ofiyat Med - Vakansiylar" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -36,16 +36,16 @@
                 </div>
                 <div class="navbar-wrap main-menu d-none d-lg-flex">
                   <ul class="navigation">
-                    <li class="active"><a href="/">Asosiy Sahifa</a></li>
+                    <li><a href="/">Asosiy Sahifa</a></li>
                     <li><a href="/about">Biz Haqimizda</a></li>
                     <li><a href="/doctor">Jamoamiz</a></li>
-                    <li><a href="/vacancy">Vakansiyalar</a></li>
+                    <li class="active"><a href="/vacancy">Vakansiyalar</a></li>
                     <li><a href="/contact">Bog'lanish</a></li>
                   </ul>
                 </div>
                 <div class="header-action d-none d-md-block">
                   <ul class="list-wrap">
-                    <li class="header-btn"><a href="contact.html" class="button-one">Qabulga Yozilish</a></li>
+                    <li class="header-btn"><a href="/contact" class="button-one">Qabulga Yozilish</a></li>
                   </ul>
                 </div>
               </nav>
@@ -66,7 +66,8 @@
                       <a href="#"><i class="fab fa-twitter"></i></a>
                     </li>
                     <li>
-                      <a href="https://instagram.com/ofiyat_med?igshid=MzRlODBiNWFlZA=="><i class="fab fa-instagram"></i></a>
+                      <a href="https://instagram.com/ofiyat_med?igshid=MzRlODBiNWFlZA=="><i
+                          class="fab fa-instagram"></i></a>
                     </li>
                     <li>
                       <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -87,26 +88,48 @@
   <div class="breadcrumbs-title-area">
     <div class="container">
       <div class="breadcrumbs-title-content wow animate__animated animate__fadeInUp">
-        <h2>404 Sahifa Topilmadi</h2>
+        <h2>Vakansiyalar</h2>
         <ul>
           <li><a href="/">Asosiy Sahifa</a></li>
-          <li>404 Sahifa Topilmadi</li>
+          <li>Vakansiyalar</li>
         </ul>
       </div>
     </div>
   </div>
   <section class="error-section section-padding">
-    <div id="error_page">
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-xl-7 col-lg-9 wow animate__animated animate__fadeInUp">
-            <img src="/images/404.svg" alt="" class="img-fluid" width="400" height="212" />
-            <p>Siz qidirayotgan sahifa mavjud emas!</p>
-          </div>
+    <style>
+        .card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card-body {
+            flex: 1;
+        }
+    </style>
+    <div class="container">
+        <div class="row">
+            <% for (const vacan of vacancy) { %>
+                <div class="col-md-3 col-sm-6 col-12 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><%=vacan.title%></h5>
+                            <p class="card-text"><%=vacan.simpleDescription%></p>
+                            <% const date = new Date(vacan.date); %>
+                            <p class="card-text">Nashr qilingan sana: <%= (date.getDate()).toString().padStart(2, '0') %>.<%= (date.getMonth() + 1).toString().padStart(2, '0') %>.<%= date.getFullYear() %></p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/vacancy/<%=vacan._id%>" class="btn btn-primary">Batafsil</a>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
         </div>
-      </div>
     </div>
-  </section>
+</section>
+
+
   <footer>
     <div class="footer-widgets">
       <div class="container">
@@ -121,7 +144,8 @@
               </p>
               <div class="footer-social">
                 <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
-                <a href="https://instagram.com/ofiyat_med?igshid=MzRlODBiNWFlZA==" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://instagram.com/ofiyat_med?igshid=MzRlODBiNWFlZA==" title="Instagram"><i
+                    class="fab fa-instagram"></i></a>
                 <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
               </div>
             </div>

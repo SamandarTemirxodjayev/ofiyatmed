@@ -1,6 +1,7 @@
 const Emails = require("../models/Emails");
 const Info = require("../models/Info");
 const axios = require("axios");
+const Vacancy = require("../models/Vacancy");
 
 exports.index = async (req, res) => {
   try {
@@ -70,3 +71,38 @@ exports.doctor = async (req, res) => {
     res.render("404");
   }
 };
+exports.faq = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('faq', { info });
+  } catch (error) {
+    res.json("404");
+  }
+}
+exports.vacancy = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    const vacancy = await Vacancy.find({});
+    res.render('vacancy', { info, vacancy });
+  } catch (error) {
+    res.json("404");
+  }
+}
+exports.vacancyId = async (req, res) => {
+  try {
+    const info = await Info.findOne({ id: 1 });
+    const vacancy = await Vacancy.findById(req.params.id);
+    if (!vacancy) return res.render('404', { info });
+    res.render('vacancy-id', { info, vacancy });
+  } catch (error) {
+    res.render('404'); // Render an error template or handle the error appropriately
+  }
+};
+exports.help1 = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('help/1', { info });
+  } catch (error) {
+    res.json("404");
+  }
+}
