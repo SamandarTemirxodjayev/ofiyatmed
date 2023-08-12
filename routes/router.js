@@ -13,6 +13,7 @@ router.get('/faq', userController.faq);
 router.get('/vacancy', userController.vacancy);
 router.get('/vacancy/:id', userController.vacancyId);
 router.get('/help/1', userController.help1);
+router.get('/doctor/1', userController.doctor1);
 router.get('/admin', adminController.admin);
 router.post('/admin', adminController.adminPost);
 router.get('/admin/dashboard', adminController.adminDashboard);
@@ -20,6 +21,8 @@ router.get('/admin/logout', adminController.adminLogout);
 router.get('/admin/vacancy', adminController.adminVacancy);
 router.get('/admin/vacancy/register', adminController.adminVacancyRegister);
 router.post('/admin/vacancy/register', adminController.adminVacancyRegisterPost);
+router.get('/admin/info', adminController.adminInfo);
+router.post('/admin/info', adminController.adminInfoPost);
 router.get('/admin/vacancy/delete/:id', adminController.adminVacancyDeleteId);
 
 module.exports = router;

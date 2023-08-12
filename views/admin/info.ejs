@@ -29,7 +29,29 @@
         </ul>
     </div>
 </nav>
-
+<div class="container max-w-md mx-auto mt-4">
+  <form action="/admin/info" method="post">
+      <div class="mb-4">
+          <label for="name" class="mb-2 font-medium text-gray-700">Manzil</label>
+          <input value="<%=info.address%>" name="address" id="name" type="text" class="form-control" required />
+      </div>
+      <div class="mb-4">
+          <label for="name" class="mb-2 font-medium text-gray-700">Google Manzil</label>
+          <input value="<%=info.google_address%>" name="google_address" id="name" type="text" class="form-control" required />
+      </div>
+      <div class="mb-4">
+          <label for="price" class="mb-2 font-medium text-gray-700">E-mail</label>
+          <input value="<%=info.email%>" name="email" id="price" type="text" class="form-control" required />
+      </div>
+      <div class="mb-4">
+          <label for="min_limit" class="mb-2 font-medium text-gray-700">Telefon Raqam</label>
+          <input value="<%=info.phone%>" name="phone" id="min_limit" type="text" class="form-control" required />
+      </div>
+      <div>
+          <button type="submit" class="btn btn-primary btn-block">Tasdiqlash</button>
+      </div>
+  </form>
+</div>
 <script>
     const login = localStorage.getItem('login');
     if (!login) {

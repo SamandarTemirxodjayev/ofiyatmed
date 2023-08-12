@@ -1,3 +1,5 @@
+const { findOne } = require("../models/Emails");
+const Info = require("../models/Info");
 const Vacancy = require("../models/Vacancy");
 
 exports.admin = async (req, res) => {
@@ -46,5 +48,26 @@ exports.adminVacancyDeleteId = async (req, res) => {
     res.redirect("/admin/vacancy");
   } catch (error) {
     res.json({ success: false });
+  }
+}
+exports.adminInfo = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('admin/info', {info});
+  } catch (error) {
+    res.json({ success: false });
+  }
+}
+exports.adminInfoPost = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    info.phone = req.body.phone;
+    info.email = req.body.email;
+    info.address = req.body.address;
+    info.google_address = req.body.google_address;
+    await info.save();
+    res.redirect("/admin");
+  } catch (error) {
+    res.json({ success: false, error: error.message });
   }
 }

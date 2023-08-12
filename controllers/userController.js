@@ -106,3 +106,11 @@ exports.help1 = async (req, res) => {
     res.json("404");
   }
 }
+exports.doctor1 = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('doctor/1', { info });
+  } catch (error) {
+    res.json("404");
+  }
+}
