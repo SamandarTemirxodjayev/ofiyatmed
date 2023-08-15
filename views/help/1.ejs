@@ -53,26 +53,17 @@
               <nav class="menu-box" aria-label>
                 <div class="close-btn"><i class="fas fa-times"></i></div>
                 <div class="nav-logo">
-                  <a href="/"><img src="/images/logo.svg" alt="Logo" /></a>
+                  <a href="/"><img src="/images/logo.svg" alt="Logo"></a>
                 </div>
-                <div class="menu-outer"></div>
+                <div class="menu-outer">
+                </div>
                 <div class="social-links">
                   <ul class="clearfix list-wrap">
-                    <li>
-                      <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fab fa-twitter"></i></a>
-                    </li>
-                    <li>
-                      <a href="https://instagram.com/ofiyat_med?igshid=MzRlODBiNWFlZA=="><i class="fab fa-instagram"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fab fa-youtube"></i></a>
-                    </li>
+                    <li><a href="https://t.me/ofiyat_med"><i class="fab fa-telegram"></i></a></li>
+                    <li><a href="https://instagram.com/ofiyat_med?igshid=MzRlODBiNWFlZA=="><i
+                          class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100093428571571"><i
+                          class="fab fa-facebook-f"></i></a></li>
                   </ul>
                 </div>
               </nav>
@@ -100,7 +91,12 @@
         <div class="row justify-content-center text-center">
           <div class="wow animate__animated animate__fadeInUp">
             <h1>Tibbiy Maslahat</h1>
-            <h5 class="mx-5 col col-lg-12">Sayohat qilish, ayniqsa davolanish uchun boshqa mamlakatga sayohat qilayotganda juda ko'p rejalashtirishga muhtoj. Endi u nafaqat ko'ngil ochish bilan cheklanib qolmaydi, balki jiddiy narsalarga aylanadi, chunki bu sizning sog'lig'ingizga ta'sir qiladi. Bir nechta rejalashtirish va tadqiqotlardan so'ng, sizga qaysi shifokorlar va shifoxonalar sizga mos kelishini aytib beradigan ishonchli kishining ishonchini talab qilishingiz kerak. Aynan shu vaqtda tibbiy sayohat bo'yicha maslahatchi yordamga keladi</h5>
+            <h5 class="mx-5 col col-lg-12">Sayohat qilish, ayniqsa davolanish uchun boshqa mamlakatga sayohat
+              qilayotganda juda ko'p rejalashtirishga muhtoj. Endi u nafaqat ko'ngil ochish bilan cheklanib qolmaydi,
+              balki jiddiy narsalarga aylanadi, chunki bu sizning sog'lig'ingizga ta'sir qiladi. Bir nechta
+              rejalashtirish va tadqiqotlardan so'ng, sizga qaysi shifokorlar va shifoxonalar sizga mos kelishini aytib
+              beradigan ishonchli kishining ishonchini talab qilishingiz kerak. Aynan shu vaqtda tibbiy sayohat bo'yicha
+              maslahatchi yordamga keladi</h5>
           </div>
         </div>
       </div>
@@ -108,88 +104,86 @@
   </section>
   <section class="contact-area section-padding mt-1">
     <div class="container">
-        <div class="section-title pb-10 wow animate__animated animate__fadeInUp">
-            <span class="sub-title">Xabar yuborish</span>
-            <h2>Biz bilan bog'lanishga uyalmang</h2>
-            <div class="section-title-separator"></div>
-        </div>
-        <div class="row">
-            <div class="col-lg-5 col-md-12 wow animate__animated animate__fadeInUp">
-                <div class="contact-info">
-                    <ul>
-                        <li>
-                            <div class="icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <span>Manzilimiz</span>
-                            <%= info.address %>
-                        </li>
-                        <li>
-                            <div class="icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <span>Elektron Pochta manzilimiz</span>
-                            <a href="mailto:<%= info.email %>">
-                                <%= info.email %>
-                            </a>
-                        </li>
-                        <li>
-                            <div class="icon">
-                                <i class="fas fa-phone-volume"></i>
-                            </div>
-                            <span>Telefon</span>
-                            <a href="tel:<%= info.address %>">
-                                <%= info.phone %>
-                            </a>
-                        </li>
-                    </ul>
+      <div class="section-title pb-10 wow animate__animated animate__fadeInUp">
+        <span class="sub-title">Xabar yuborish</span>
+        <h2>Biz bilan bog'lanishga uyalmang</h2>
+        <div class="section-title-separator"></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-5 col-md-12 wow animate__animated animate__fadeInUp">
+          <div class="contact-info">
+            <ul>
+              <li>
+                <div class="icon">
+                  <i class="fas fa-map-marker-alt"></i>
                 </div>
-            </div>
-            <div class="col-lg-7 col-md-12 wow animate__animated animate__fadeInUp">
-                <div class="contact-form">
-                    <form id="contactForm" action="/contact" method="post">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12">
-                                <div class="form-group">
-                                    <input type="text" name="name" id="name" class="form-control" required
-                                        data-error="Iltimos Ismingizni yozing" placeholder="Ismingiz">
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="form-group">
-                                    <input type="text" name="phone_number" id="phone_number" required
-                                        data-error="Iltimos telefon raqamingizni kiriting" class="form-control"
-                                        placeholder="Telefon raqamingizni kiriting">
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="form-group">
-                                    <input type="text" name="msg_subject" id="msg_subject" class="form-control"
-                                        required data-error="Iltimos xabaringiz mavzusini kiriting"
-                                        placeholder="Xabaringiz mavzusi">
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-md-12">
-                                <div class="form-group">
-                                    <textarea name="message" class="form-control" id="message" cols="30" rows="5"
-                                        required data-error="Iltimos xabaringizni kiriting"
-                                        placeholder="Xabaringiz"></textarea>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-md-12">
-                                <button type="submit" class="btn btn-primary">Tasdiqlash</button>
-                            </div>
-                        </div>
-                    </form>
+                <span>Manzilimiz</span>
+                <%= info.address %>
+              </li>
+              <li>
+                <div class="icon">
+                  <i class="fas fa-envelope"></i>
                 </div>
-            </div>
+                <span>Elektron Pochta manzilimiz</span>
+                <a href="mailto:<%= info.email %>">
+                  <%= info.email %>
+                </a>
+              </li>
+              <li>
+                <div class="icon">
+                  <i class="fas fa-phone-volume"></i>
+                </div>
+                <span>Telefon</span>
+                <a href="tel:<%= info.address %>">
+                  <%= info.phone %>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
+        <div class="col-lg-7 col-md-12 wow animate__animated animate__fadeInUp">
+          <div class="contact-form">
+            <form id="contactForm" action="/contact" method="post">
+              <div class="row">
+                <div class="col-lg-12 col-md-12">
+                  <div class="form-group">
+                    <input type="text" name="name" id="name" class="form-control" required
+                      data-error="Iltimos Ismingizni yozing" placeholder="Ismingiz">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                  <div class="form-group">
+                    <input type="text" name="phone_number" id="phone_number" required
+                      data-error="Iltimos telefon raqamingizni kiriting" class="form-control"
+                      placeholder="Telefon raqamingizni kiriting">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                  <div class="form-group">
+                    <input type="text" name="msg_subject" id="msg_subject" class="form-control" required
+                      data-error="Iltimos xabaringiz mavzusini kiriting" placeholder="Xabaringiz mavzusi">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                  <div class="form-group">
+                    <textarea name="message" class="form-control" id="message" cols="30" rows="5" required
+                      data-error="Iltimos xabaringizni kiriting" placeholder="Xabaringiz"></textarea>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                  <button type="submit" class="btn btn-primary">Tasdiqlash</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
   <footer>
     <div class="footer-widgets">
       <div class="container">
@@ -204,7 +198,8 @@
               </p>
               <div class="footer-social">
                 <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
-                <a href="https://instagram.com/ofiyat_med?igshid=MzRlODBiNWFlZA==" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://instagram.com/ofiyat_med?igshid=MzRlODBiNWFlZA==" title="Instagram"><i
+                    class="fab fa-instagram"></i></a>
                 <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
               </div>
             </div>

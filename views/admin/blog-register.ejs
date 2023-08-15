@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/vacancy">Vakansiya Qo'shish</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/info">Ma'lumotlarni O'zgartirish</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/blog">Blog Qo'shish</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/logout">Chiqish</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container max-w-md mx-auto mt-4">
+    <form action="/admin/blog/register" method="post" enctype="multipart/form-data">
+      <div class="mb-4">
+        <label for="image" class="mb-2 font-medium text-gray-700">860x700 o'lchamdagi rasmni yuklang</label>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="image" name="file" required>
+          <label class="custom-file-label" for="image">Choose file</label>
+        </div>
+      </div>
+      <div class="mb-4">
+        <label for="price" class="mb-2 font-medium text-gray-700">Mavzu</label>
+        <input name="title" id="price" type="text" class="form-control" required />
+      </div>
+      <div class="mb-4">
+        <label for="min_limit" class="mb-2 font-medium text-gray-700">Qisqach ma'lumot</label>
+        <input name="simpleDescription" id="min_limit" type="text" class="form-control" required />
+      </div>
+      <div class="mb-4">
+        <label for="min_limit" class="mb-2 font-medium text-gray-700">To'liq ma'lumot</label>
+        <textarea name="description" id="min_limit" type="text" class="form-control" required></textarea>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary btn-block">Tasdiqlash</button>
+      </div>
+    </form>
+  </div>
+
+
+  <script>
+    const login = localStorage.getItem('login');
+    if (!login) {
+      window.location.href = "/admin";
+    }
+    const inputImage = document.getElementById('image');
+    const labelImage = document.querySelector('.custom-file-label');
+
+    inputImage.addEventListener('change', function () {
+      const fileName = this.files[0].name;
+      labelImage.textContent = fileName;
+    });
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

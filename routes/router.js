@@ -11,6 +11,9 @@ router.post('/contact', userController.contactPost);
 router.get('/doctor', userController.doctor);
 router.get('/faq', userController.faq);
 router.get('/vacancy', userController.vacancy);
+router.get('/resume', userController.resume);
+router.get('/blog', userController.blog);
+router.get('/blog/:id', userController.blogById);
 router.get('/vacancy/:id', userController.vacancyId);
 router.get('/help/1', userController.help1);
 router.get('/doctor/1', userController.doctor1);
@@ -24,5 +27,9 @@ router.post('/admin/vacancy/register', adminController.adminVacancyRegisterPost)
 router.get('/admin/info', adminController.adminInfo);
 router.post('/admin/info', adminController.adminInfoPost);
 router.get('/admin/vacancy/delete/:id', adminController.adminVacancyDeleteId);
+router.get('/admin/blog', adminController.adminBlog);
+router.get('/admin/blog/register', adminController.adminBlogRegister);
+router.post('/admin/blog/register', adminController.adminBlogRegisterPost);
+router.get('/admin/blog/delete/:id', adminController.adminBlogDeleteId);
 
 module.exports = router;

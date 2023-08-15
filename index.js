@@ -3,6 +3,7 @@ const router = require('./routes/router');
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 const Info = require('./models/Info');
+const ejs = require('ejs');
 
 const app = express();
 

@@ -2,11 +2,13 @@ const Emails = require("../models/Emails");
 const Info = require("../models/Info");
 const axios = require("axios");
 const Vacancy = require("../models/Vacancy");
+const Blogs = require("../models/Blog");
 
 exports.index = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});
-    res.render('index', { info });
+    const blogs = await Blogs.find({});
+    res.render('index', { info, blogs });
   } catch (error) {
     res.render("404");
   }
@@ -112,5 +114,32 @@ exports.doctor1 = async (req, res) => {
     res.render('doctor/1', { info });
   } catch (error) {
     res.json("404");
+  }
+}
+exports.resume = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('resume', { info });
+  } catch (error) {
+    res.json("404");
+  }
+}
+exports.blog = async (req, res) => {
+  try {
+    const info = await Info.find({});
+    const blogs = await Blogs.find({});
+    res.render('blog', { info, blogs });
+  } catch (error) {
+    res.json("404");
+  }
+}
+exports.blogById = async (req, res) => {
+  try {
+    const info = await Info.findOne({ id: 1 });
+    const blog = await Blogs.findById(req.params.id);
+    if (!blog) return res.render('404', { info });
+    res.render('blog-id', { info, blog });
+  } catch (error) {
+    res.render('404'); // Render an error template or handle the error appropriately
   }
 }

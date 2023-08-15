@@ -32,15 +32,16 @@
     </div>
   </nav>
   <div class="mt-8">
-    <a href="/admin/vacancy/register" class="d-flex justify-content-end mb-4 mr-3">
+    <a href="/admin/blog/register" class="d-flex justify-content-end mb-4 mr-3">
       <button class="btn btn-primary py-2 px-3 rounded-sm font-weight-bold">
-        Vakansiya Qo'shish
+        Blog Qo'shish
       </button>
     </a>
     <table class="w-full">
       <thead>
         <tr class="w-full">
-          <th class="px-5 py-3 text-left border border-black">Nomi</th>
+          <th class="px-5 py-3 text-left border border-black">Rasm</th>
+          <th class="px-5 py-3 text-left border border-black">Mavzu</th>
           <th class="px-5 py-3 text-left border border-black">Qizqacha mazmuzini</th>
           <th class="px-5 py-3 text-left border border-black">To'liq Mazmuni</th>
           <th class="px-5 py-3 text-left border border-black">
@@ -51,11 +52,14 @@
           </th>
         </tr>
       </thead>
-      <!-- ... (other HTML code) ... -->
-
       <tbody>
-        <% for (const vacan of vacancy) { %>
+        <% for (const vacan of blog) { %>
           <tr class="hover:bg-gray-200 cursor-pointer">
+            <td class="px-5 py-3 border border-black">
+              <div>
+                <img src="/blogs/<%=vacan.photo%>.<%=vacan.file%>" alt="">
+              </div>
+            </td>
             <td class="px-5 py-3 border border-black">
               <div>
                 <%= vacan.title %>
@@ -63,7 +67,9 @@
             </td>
             <td class="px-5 py-3 border border-black">
               <div>
-                <%= vacan.simpleDescription %>
+                <p>
+                  <%- vacan.simpleDescription %>
+                </p>
               </div>
             </td>
             <td class="px-5 py-3 border border-black">
@@ -81,16 +87,13 @@
               </div>
             </td>
             <td class="px-5 py-3 border border-black">
-              <a href="/admin/vacancy/delete/<%= vacan._id %>" class="btn btn-primary">
+              <a href="/admin/blog/delete/<%= vacan._id %>" class="btn btn-primary">
                 O'chirib tashlash
               </a>
             </td>
           </tr>
           <% } %>
       </tbody>
-
-      <!-- ... (remaining HTML code) ... -->
-
     </table>
   </div>
   <script>

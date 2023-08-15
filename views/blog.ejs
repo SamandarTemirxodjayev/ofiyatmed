@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Ofiyat Med - Vakansiylar</title>
-  <meta name="description" content="Ofiyat Med - Vakansiylar" />
+  <title>Ofiyat Med - Bloglarimiz</title>
+  <meta name="description" content="Ofiyat Med - Bloglarimiz" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -39,13 +39,13 @@
                     <li><a href="/">Asosiy Sahifa</a></li>
                     <li><a href="/about">Biz Haqimizda</a></li>
                     <li><a href="/doctor">Jamoamiz</a></li>
-                    <li class="menu-item-has-children active"><a href="/vacancy">Vakansiya</a>
+                    <li class="menu-item-has-children"><a href="/vacancy">Vakansiya</a>
                       <ul class="sub-menu">
                         <li><a href="/vacancy">Vakansiya</a></li>
                         <li><a href="/resume">Rezume Yuborish</a></li>
                       </ul>
                     </li>
-                    <li><a href="/blog">Bloglarimiz</a></li>
+                    <li class="active"><a href="/blog">Bloglarimiz</a></li>
                     <li><a href="/contact">Bog'lanish</a></li>
                   </ul>
                 </div>
@@ -85,45 +85,55 @@
   <div class="breadcrumbs-title-area">
     <div class="container">
       <div class="breadcrumbs-title-content wow animate__animated animate__fadeInUp">
-        <h2>Vakansiyalar</h2>
+        <h2>Bloglarimiz</h2>
         <ul>
           <li><a href="/">Asosiy Sahifa</a></li>
-          <li>Vakansiyalar</li>
+          <li>Bloglarimiz</li>
         </ul>
       </div>
     </div>
   </div>
-  <section class="error-section section-padding">
-    <style>
-      .card {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-      }
-
-      .card-body {
-        flex: 1;
-      }
-    </style>
+  <section class="blog-section section-padding">
+    <div class="section-heading">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="section-title wow animate__animated animate__fadeInUp">
+            <span class="sub-title">So'nggi yangiliklar</span>
+            <h2>Klinikamiz haqida eng so'nggi yangiliklar</h2>
+            <div class="section-title-separator"></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="container">
-      <div class="row">
-        <% for (const vacan of vacancy) { %>
-          <div class="col-md-3 col-sm-6 col-12 mb-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <%=vacan.title%>
-                </h5>
-                <p class="card-text">
-                  <%=vacan.simpleDescription%>
-                </p>
-                <% const date=new Date(vacan.date); %>
-                  <p class="card-text">Nashr qilingan sana: <%= (date.getDate()).toString().padStart(2, '0' ) %>.<%=
-                        (date.getMonth() + 1).toString().padStart(2, '0' ) %>.<%= date.getFullYear() %>
-                  </p>
+      <div class="row pt-100">
+        <% for(const blog of blogs) { %>
+          <div class="col-lg-4 col-md-6 d-flex  wow animate__animated animate__fadeInUp">
+            <div class="blog-item">
+              <div class="blog-image">
+                <a href="blog-details.html"><img class="img-fluid" src="/blogs/<%=blog.photo%>.<%=blog.file%>"
+                    alt="Post Image"></a>
               </div>
-              <div class="card-footer">
-                <a href="/vacancy/<%=vacan._id%>" class="btn btn-primary">Batafsil</a>
+              <div class="blog-content">
+                <ul class="entry-meta meta-item">
+                  <li>
+                    <div class="post-author">
+                      <a href="/" class="mb-0"><span>Ofiyat Med</span></a>
+                    </div>
+                  </li>
+                  <% const options={ year: 'numeric' , month: 'long' , day: 'numeric' }; %>
+                    <li class="date-icon"><i class="fal fa-calendar-alt"></i>
+                      <%= (new Date(blog.date)).toLocaleDateString('en-US', options) %>
+                    </li>
+                </ul>
+                <h3 class="blog-title"><a href="/blog/<%=blog._id%>">
+                    <%=blog.title%>
+                  </a></h3>
+                <p class="blog-description">
+                  <%=blog.simpleDescription%>
+                </p>
+                <p class="viewlink"><a href="/blog/<%=blog._id%>">Batafsil <i class="fal fa-long-arrow-right"></i></a>
+                </p>
               </div>
             </div>
           </div>
@@ -131,8 +141,6 @@
       </div>
     </div>
   </section>
-
-
   <footer>
     <div class="footer-widgets">
       <div class="container">
@@ -199,7 +207,6 @@
           </div>
         </div>
       </div>
-
     </div>
     <div class="footer-copyright">
       <div class="container">

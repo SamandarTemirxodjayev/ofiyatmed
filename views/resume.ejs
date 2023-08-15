@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Ofiyat Med - Vakansiylar</title>
-  <meta name="description" content="Ofiyat Med - Vakansiylar" />
+  <title>Ofiyat Med - Rezume</title>
+  <meta name="description" content="Ofiyat Med - Rezume" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -85,53 +85,99 @@
   <div class="breadcrumbs-title-area">
     <div class="container">
       <div class="breadcrumbs-title-content wow animate__animated animate__fadeInUp">
-        <h2>Vakansiyalar</h2>
+        <h2>Rezume</h2>
         <ul>
           <li><a href="/">Asosiy Sahifa</a></li>
-          <li>Vakansiyalar</li>
+          <li>Rezume</li>
         </ul>
       </div>
     </div>
   </div>
-  <section class="error-section section-padding">
-    <style>
-      .card {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-      }
 
-      .card-body {
-        flex: 1;
-      }
-    </style>
+  <section class="contact-area section-padding">
     <div class="container">
+      <div class="section-title pb-10 wow animate__animated animate__fadeInUp">
+        <span class="sub-title">Rezume yuborish</span>
+        <h2>Biz bilan bog'lanishga uyalmang</h2>
+        <div class="section-title-separator"></div>
+      </div>
       <div class="row">
-        <% for (const vacan of vacancy) { %>
-          <div class="col-md-3 col-sm-6 col-12 mb-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <%=vacan.title%>
-                </h5>
-                <p class="card-text">
-                  <%=vacan.simpleDescription%>
-                </p>
-                <% const date=new Date(vacan.date); %>
-                  <p class="card-text">Nashr qilingan sana: <%= (date.getDate()).toString().padStart(2, '0' ) %>.<%=
-                        (date.getMonth() + 1).toString().padStart(2, '0' ) %>.<%= date.getFullYear() %>
-                  </p>
-              </div>
-              <div class="card-footer">
-                <a href="/vacancy/<%=vacan._id%>" class="btn btn-primary">Batafsil</a>
-              </div>
-            </div>
+        <div class="col-lg-5 col-md-12 wow animate__animated animate__fadeInUp">
+          <div class="contact-info">
+            <ul>
+              <li>
+                <div class="icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <span>Manzilimiz</span>
+                <%= info.address %>
+              </li>
+              <li>
+                <div class="icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <span>Elektron Pochta manzilimiz</span>
+                <a href="mailto:<%= info.email %>">
+                  <%= info.email %>
+                </a>
+              </li>
+              <li>
+                <div class="icon">
+                  <i class="fas fa-phone-volume"></i>
+                </div>
+                <span>Telefon</span>
+                <a href="tel:<%= info.address %>">
+                  <%= info.phone %>
+                </a>
+              </li>
+            </ul>
           </div>
-          <% } %>
+        </div>
+        <div class="col-lg-7 col-md-12 wow animate__animated animate__fadeInUp">
+          <div class="contact-form">
+            <form id="contactForm" action="/contact" method="post">
+              <div class="row">
+                <div class="col-lg-12 col-md-12">
+                  <div class="form-group">
+                    <input type="text" name="name" id="name" class="form-control" required
+                      data-error="Iltimos Ismingizni yozing" placeholder="Ismingiz">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                  <div class="form-group">
+                    <input type="text" name="phone_number" id="phone_number" required
+                      data-error="Iltimos telefon raqamingizni kiriting" class="form-control"
+                      placeholder="Telefon raqamingizni kiriting">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                  <div class="form-group">
+                    <input type="text" name="msg_subject" id="msg_subject" class="form-control" required
+                      data-error="Iltimos xabaringiz mavzusini kiriting"
+                      placeholder="O'z kasbingizni yozing(Kardiolog, Nevropotolog)">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                  <div class="form-group">
+                    <textarea name="message" class="form-control" id="message" cols="30" rows="5" required
+                      data-error="Iltimos xabaringizni kiriting"
+                      placeholder="Ozingiz haqingizda qisqacha ma'lumot"></textarea>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                  <button type="submit" class="btn btn-primary">Tasdiqlash</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-
 
   <footer>
     <div class="footer-widgets">
