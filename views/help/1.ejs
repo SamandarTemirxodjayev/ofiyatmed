@@ -184,83 +184,15 @@
       </div>
     </div>
   </section>
-  <footer>
-    <div class="footer-widgets">
-      <div class="container">
-        <div class="row justify-content-between">
-          <div class="col-12 col-md-6 col-lg-3 res-margin">
-            <div class="widget">
-              <p class="footer-logo">
-              <h1 style="color: #fff;">OFIYAT MED</h1>
-              </p>
-              <p>
-                Biz sizga har qanday tibbiy yo’nalishda xizmat ko’rsatamiz
-              </p>
-              <div class="footer-social">
-                <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
-                <a href="https://instagram.com/ofiyat_med?igshid=MzRlODBiNWFlZA==" title="Instagram"><i
-                    class="fab fa-instagram"></i></a>
-                <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-2 offset-lg-1 res-margin">
-            <div class="widget">
-              <h6>Foydali ssilkalar</h6>
-              <ul class="footer-menu">
-                <li><a href="tel:+998951003300">Texnik yordam</a></li>
-                <li><a href="/faq">Ko'p beriladigan savollar</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-3">
-            <div class="widget">
-              <h6>Bog'lanish</h6>
-            </div>
-            <ul class="footer-menu footer-contact-list">
-              <li>
-                <span>Manzil:</span>
-                <a href="<%= info.google_address %>">
-                  <%= info.address %>
-                </a>
-              </li>
-              <li>
-                <span>Email:</span>
-                <a href="mailto:<%= info.email %>">
-                  <%= info.email %>
-                </a>
-              </li>
-              <li>
-                <span>Telefon Raqam:</span>
-                <a href="tel:<%= info.phone %>">
-                  <%= info.phone %>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <p class="copyright text-center">
-              Copyright © 2023 <a href="https://uis-team.com">UIS Team</a>. Barcha Huquqlar Himoyalangan.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <script src="/vendor/jquery/jquery.min.js"></script>
-  <script src="/vendor/waypoints/jquery-waypoints.min.js"></script>
-  <script src="/vendor/bootstrap/bootstrap.min.js"></script>
-  <script src="/vendor/wow/wow.js"></script>
-  <script src="/vendor/jquery-counterup/jquery-counterup.min.js"></script>
-  <script src="/vendor/venobox/venobox.min.js"></script>
-  <script src="/vendor/owl-carousel/owl-carousel.min.js"></script>
-  <script src="/js/main.js"></script>
+  <%- include('./partials/footer.ejs')%>
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/waypoints/jquery-waypoints.min.js"></script>
+    <script src="/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="/vendor/wow/wow.js"></script>
+    <script src="/vendor/jquery-counterup/jquery-counterup.min.js"></script>
+    <script src="/vendor/venobox/venobox.min.js"></script>
+    <script src="/vendor/owl-carousel/owl-carousel.min.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 
 </html>

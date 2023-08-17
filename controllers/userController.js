@@ -7,10 +7,10 @@ const Blogs = require("../models/Blog");
 exports.index = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});
-    const blogs = await Blogs.find({});
-    res.render('index', { info, blogs });
+    const blogs = await Blogs.find({}).sort({ _id: -1 }).limit(3);
+    res.render('index', { info, blogs, url: "index" });
   } catch (error) {
-    res.render("404");
+    res.redirect('/404');
   }
 };
 exports.indexPost = async (req, res) => {
@@ -26,23 +26,23 @@ exports.indexPost = async (req, res) => {
     const text = "Pochta manzilingiz saqlandi";
     res.render('alert', { text });
   } catch (error) {
-    res.render("404");
+    res.redirect('/404');
   }
 }
 exports.about = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});
-    res.render('about', { info });
+    res.render('about', { info, url: "about" });
   } catch (error) {
-    res.render("404");
+    res.redirect('/404');
   }
 }
 exports.contact = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});
-    res.render('contact', { info });
+    res.render('contact', { info, url: "contact" });
   } catch (error) {
-    res.render("404");
+    res.redirect('/404');
   }
 }
 exports.contactPost = async (req, res) => {
@@ -68,26 +68,26 @@ exports.contactPost = async (req, res) => {
 exports.doctor = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});
-    res.render('doctor', { info });
+    res.render('doctor', { info, url: "doctor" });
   } catch (error) {
-    res.render("404");
+    res.redirect('/404');
   }
 };
 exports.faq = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});
-    res.render('faq', { info });
+    res.render('faq', { info, url: "faq" });
   } catch (error) {
-    res.json("404");
+    res.redirect('/404');
   }
 }
 exports.vacancy = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});
     const vacancy = await Vacancy.find({});
-    res.render('vacancy', { info, vacancy });
+    res.render('vacancy', { info, vacancy, url: "vacancy" });
   } catch (error) {
-    res.json("404");
+    res.redirect('/404');
   }
 }
 exports.vacancyId = async (req, res) => {
@@ -95,9 +95,9 @@ exports.vacancyId = async (req, res) => {
     const info = await Info.findOne({ id: 1 });
     const vacancy = await Vacancy.findById(req.params.id);
     if (!vacancy) return res.render('404', { info });
-    res.render('vacancy-id', { info, vacancy });
+    res.render('vacancy-id', { info, vacancy, url: "vacancy" });
   } catch (error) {
-    res.render('404'); // Render an error template or handle the error appropriately
+    res.redirect('/404');
   }
 };
 exports.help1 = async (req, res) => {
@@ -105,7 +105,7 @@ exports.help1 = async (req, res) => {
     const info = await Info.findOne({id: 1});
     res.render('help/1', { info });
   } catch (error) {
-    res.json("404");
+    res.redirect('/404');
   }
 }
 exports.doctor1 = async (req, res) => {
@@ -113,33 +113,33 @@ exports.doctor1 = async (req, res) => {
     const info = await Info.findOne({id: 1});
     res.render('doctor/1', { info });
   } catch (error) {
-    res.json("404");
+    res.redirect('/404');
   }
 }
 exports.resume = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});
-    res.render('resume', { info });
+    res.render('resume', { info, url: "vacancy" });
   } catch (error) {
-    res.json("404");
+    res.redirect('/404');
   }
 }
 exports.blog = async (req, res) => {
   try {
     const info = await Info.find({});
-    const blogs = await Blogs.find({});
-    res.render('blog', { info, blogs });
+    const blogs = await Blogs.find({}).sort({ _id: -1 });
+    res.render('blog', { info, blogs, url: "blog" });
   } catch (error) {
-    res.json("404");
+    res.redirect('/404');
   }
 }
 exports.blogById = async (req, res) => {
   try {
     const info = await Info.findOne({ id: 1 });
     const blog = await Blogs.findById(req.params.id);
-    if (!blog) return res.render('404', { info });
-    res.render('blog-id', { info, blog });
+    if (!blog) return res.redirect('/404');
+    res.render('blog-id', { info, blog, url: "blog" });
   } catch (error) {
-    res.render('404'); // Render an error template or handle the error appropriately
+    res.redirect('/404');// Render an error template or handle the error appropriately
   }
 }

@@ -1,0 +1,44 @@
+<header>
+  <div id="header-fixed-height"></div>
+  <div id="sticky-header" class="menu-area menu-area-one">
+    <div class="custom-container">
+      <div class="row">
+        <div class="col-12">
+          <div class="mobile-nav-toggler"><i class="fas fa-bars"></i></div>
+          <div class="menu-wrap">
+            <nav class="menu-nav" aria-label>
+              <div class="logo">
+                <a href="/"><img src="/images/logo.svg" alt="Logo"></a>
+              </div>
+              <div class="navbar-wrap main-menu d-none d-lg-flex">
+                <ul class="navigation">
+                  <li <% if (url==="index" ) { %> class="active" <% } %> ><a href="/">Asosiy Sahifa</a></li>
+                  <li <% if (url==="about" ) { %> class="active" <% } %> ><a href="/about">Biz Haqimizda</a></li>
+                  <li <% if (url==="doctor" ) { %> class="active" <% } %> ><a href="/doctor">Jamoamiz</a></li>
+                  <li <% if (url==="vacancy" ) { %> class="active menu-item-has-children" <% } else { %>
+                      class="menu-item-has-children" <% } %> >
+                        <a href="/vacancy">Vakansiya</a>
+                        <ul class="sub-menu">
+                          <li><a href="/vacancy">Vakansiya</a></li>
+                          <li><a href="/resume">Rezume Yuborish</a></li>
+                        </ul>
+                  </li>
+                  <li <% if (url==="blog" ) { %> class="active" <% } %> ><a href="/blog">Bloglarimiz</a></li>
+                  <li <% if (url==="contact" ) { %> class="active" <% } %> ><a href="/contact">Bog'lanish</a></li>
+                </ul>
+              </div>
+              <div class="header-action d-none d-md-block">
+                <ul class="list-wrap">
+                  <li class="header-btn"><a href="/contact" class="button-one">Qabulga Yozilish</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+          <div class="mobile-menu">
+          </div>
+          <div class="menu-backdrop"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -34,8 +34,8 @@ mongoose
 app.use(async(req, res, next) => {
   try {
     const info = await Info.findOne({id: 1});
-    res.status(404).render('404', {info});
+    res.status(404).render('404', {info, url: "404"});
   } catch (error) {
-    res.render("404");
+    res.render("404", {url: "404"});
   }
 });
