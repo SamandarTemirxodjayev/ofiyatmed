@@ -103,7 +103,7 @@ exports.vacancyId = async (req, res) => {
 exports.help1 = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});
-    res.render('help/1', { info });
+    res.render('help/1', { info, url: "help" });
   } catch (error) {
     res.redirect('/404');
   }
@@ -111,7 +111,7 @@ exports.help1 = async (req, res) => {
 exports.doctor1 = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});
-    res.render('doctor/1', { info });
+    res.render('doctor/1', { info, url: "doctor" });
   } catch (error) {
     res.redirect('/404');
   }
