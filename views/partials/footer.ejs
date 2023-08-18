@@ -69,7 +69,18 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <div class="text-white d-flex justify-content-between align-items-center">
+          <!-- Mobile Version -->
+          <div class="d-md-none">
+            <div class="text-center">
+              <span class="font-weight-bolder">Developed with</span>
+              <img id="heart" src="/images/heart.png" alt="" class="heart-animation mx-2">
+              by
+              <a href="https://uis-team.com" class="text-white "><img src="/images/uis.png" alt="" width="50">
+                <span>Team</span></a>
+            </div>
+          </div>
+          <!-- Desktop Version -->
+          <div class="text-white d-none d-md-flex justify-content-between align-items-center">
             <div>
               Copyright© 2023
             </div>
@@ -77,7 +88,8 @@
               <span class="font-weight-bolder">Developed with</span>
               <img id="heart" src="/images/heart.png" alt="" class="heart-animation mx-2">
               by
-              <img src="/images/uis.png" alt="" width="50"> <span>Team</span>
+              <a href="https://uis-team.com" class="text-white"><img src="/images/uis.png" alt="" width="50">
+                <span>Team</span></a>
             </div>
             <div>
               Barcha Huquqlar Himoyalangan
@@ -87,6 +99,7 @@
       </div>
     </div>
   </div>
+
 </footer>
 <style>
   @keyframes heartBeat {
