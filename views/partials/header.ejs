@@ -1,10 +1,11 @@
 <header>
   <div id="header-fixed-height"></div>
-  <div id="sticky-header" class="menu-area menu-area-one">
+
+  <div id="sticky-header" class="menu-area menu-area-one align-items-center">
     <div class="custom-container">
       <div class="row">
         <div class="col-12">
-          <div class="mobile-nav-toggler"><i class="fas fa-bars"></i></div>
+          <div class="mobile-nav-toggler mt-5-mobile"><i class="fas fa-bars"></i></div>
           <div class="menu-wrap">
             <nav class="menu-nav" aria-label>
               <div class="logo">
@@ -29,12 +30,29 @@
               </div>
               <div class="header-action d-none d-md-block">
                 <ul class="list-wrap">
-                  <li class="header-btn"><a href="/contact" class="button-one">Qabulga Yozilish</a></li>
+                  <li class="header-btn"><a href="/contact" class="button-one">Book Appointment</a></li>
                 </ul>
               </div>
             </nav>
           </div>
           <div class="mobile-menu">
+            <nav class="menu-box" aria-label>
+              <div class="close-btn"><i class="fas fa-times"></i></div>
+              <div class="nav-logo">
+                <a href="index.html"><img src="/images/logo.svg" alt="Logo"></a>
+              </div>
+              <div class="menu-outer">
+              </div>
+              <div class="social-links">
+                <ul class="clearfix list-wrap">
+                  <li><a href="https://t.me/ofiyat_med" title="Telegram"><i class="fab fa-telegram fa-lg"></i></a></li>
+                  <li><a href="https://instagram.com/ofiyat_med?igshid=MzRlODBiNWFlZA==" title="Instagram"><i
+                        class="fab fa-instagram fa-lg"></i></a></li>
+                  <li><a href="https://www.facebook.com/profile.php?id=100093428571571" title="Facebook"><i
+                        class="fab fa-facebook fa-lg"></i></a></li>
+                </ul>
+              </div>
+            </nav>
           </div>
           <div class="menu-backdrop"></div>
         </div>
@@ -42,3 +60,12 @@
     </div>
   </div>
 </header>
+<style>
+  .mt-5-mobile {
+    padding-top: 5px;
+
+    @media (min-width: 767.98px) {
+      margin-top: 0;
+    }
+  }
+</style>

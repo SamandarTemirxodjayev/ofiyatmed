@@ -17,6 +17,11 @@
   line-height: 0.75em;
   vertical-align: -.0667em;
 }
+@media (min-width: 767.98px) {
+  .fa-lg {
+    font-size: 0.5em;
+  }
+}
 
 .fa-xs {
   font-size: .75em;
