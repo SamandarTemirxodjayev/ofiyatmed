@@ -116,6 +116,54 @@ exports.doctor1 = async (req, res) => {
     res.redirect('/404');
   }
 }
+exports.doctor3 = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('doctor/3', { info, url: "doctor" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.doctor4 = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('doctor/4', { info, url: "doctor" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.doctor9 = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('doctor/9', { info, url: "doctor" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.doctor10 = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('doctor/10', { info, url: "doctor" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.doctor11 = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('doctor/11', { info, url: "doctor" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.doctor12 = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('doctor/12', { info, url: "doctor" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
 exports.resume = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});
