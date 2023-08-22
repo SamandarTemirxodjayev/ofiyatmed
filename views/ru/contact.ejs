@@ -1,0 +1,155 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Ofiyat Med - Поддержка</title>
+    <meta name="description" content="Ofiyat Med - Поддержка">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/vendor/animate/animate.min.css">
+    <link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/owl-carousel/owl-carousel.min.css">
+    <link rel="stylesheet" href="/vendor/venobox/venobox.css">
+    <link rel="stylesheet" href="/vendor/font-awesome/font-awesome.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+
+<body>
+    <div class="preloader"></div>
+    <button class="scroll-top scroll-to-target" data-target="html">
+        <i class="fas fa-level-up-alt"></i>
+    </button>
+    <%- include("./partials/header.ejs") %>
+        <div class="breadcrumbs-title-area">
+            <div class="container">
+                <div class="breadcrumbs-title-content wow animate__animated animate__fadeInUp">
+                    <h2>Запись На Прием</h2>
+                    <ul>
+                        <li><a href="/">Главная Страница</a></li>
+                        <li>Запись На Прием</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <section class="contact-area section-padding">
+            <div class="container">
+                <div class="section-title pb-10 wow animate__animated animate__fadeInUp">
+                    <span class="sub-title">Отправить сообщение</span>
+                    <h2>Не стесняйтесь обращаться к нам</h2>
+                    <div class="section-title-separator"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5 col-md-12 wow animate__animated animate__fadeInUp">
+                        <div class="contact-info">
+                            <ul>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <span>Наш адрес</span>
+                                    <%= info.address %>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <span>Наш адрес электронной почты</span>
+                                    <a href="mailto:<%= info.email %>">
+                                        <%= info.email %>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fas fa-phone-volume"></i>
+                                    </div>
+                                    <span>Телефон</span>
+                                    <a href="tel:<%= info.address %>">
+                                        <%= info.phone %>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-12 wow animate__animated animate__fadeInUp">
+                        <div class="contact-form">
+                            <form id="contactForm" action="/contact" method="post" class="mt-40-mobile">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" name="name" id="name" class="form-control" required
+                                                data-error="Iltimos Ismingizni yozing" placeholder="Ваше имя">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" name="phone_number" id="phone_number" required
+                                                data-error="Iltimos telefon raqamingizni kiriting" class="form-control"
+                                                placeholder="Введите свой номер телефона">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" name="msg_subject" id="msg_subject" class="form-control"
+                                                required data-error="Iltimos xabaringiz mavzusini kiriting"
+                                                placeholder="Тема Вашего сообщения">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <textarea name="message" class="form-control" id="message" cols="30"
+                                                rows="5" required data-error="Iltimos xabaringizni kiriting"
+                                                placeholder="Ваше сообщение"></textarea>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12">
+                                        <button type="submit" class="btn btn-primary">Подтверждение</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="map-area">
+            <div style="position:relative;overflow:hidden;"><a
+                    href="https://yandex.uz/maps/org/11370094357/?utm_medium=mapframe&utm_source=maps"
+                    style="color:#eee;font-size:12px;position:absolute;top:0px;">Ofiyat Med</a><a
+                    href="https://yandex.uz/maps/10335/tashkent/category/medical_center_clinic/184106108/?utm_medium=mapframe&utm_source=maps"
+                    style="color:#eee;font-size:12px;position:absolute;top:14px;">Tibbiy markaz, klinika
+                    Toshkentda</a><iframe title="Ofiyat Med"
+                    src="https://yandex.uz/map-widget/v1/?ll=69.207727%2C41.228397&mode=search&oid=11370094357&ol=biz&z=17.08"
+                    width="560" height="400" allowfullscreen="true" style="position:relative;"></iframe>
+            </div>
+        </div>
+        <%- include('./partials/footer.ejs')%>
+            <script src="/vendor/jquery/jquery.min.js"></script>
+            <script src="/vendor/waypoints/jquery-waypoints.min.js"></script>
+            <script src="/vendor/bootstrap/bootstrap.min.js"></script>
+            <script src="/vendor/wow/wow.js"></script>
+            <script src="/vendor/jquery-counterup/jquery-counterup.min.js"></script>
+            <script src="/vendor/venobox/venobox.min.js"></script>
+            <script src="/vendor/owl-carousel/owl-carousel.min.js"></script>
+            <script src="/js/main.js"></script>
+</body>
+
+</html>
+
+<style>
+    .mt-40-mobile {
+        margin-top: 40px;
+
+        @media (min-width: 767.98px) {
+            margin-top: 0;
+        }
+    }
+</style>

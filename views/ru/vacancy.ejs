@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html class="no-js" lang="uz">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Ofiyat Med - Вакансии</title>
+  <meta name="description" content="Ofiyat Med - Вакансии" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+  <link rel="stylesheet" href="/vendor/animate/animate.min.css" />
+  <link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="/vendor/owl-carousel/owl-carousel.min.css" />
+  <link rel="stylesheet" href="/vendor/venobox/venobox.css" />
+  <link rel="stylesheet" href="/vendor/font-awesome/font-awesome.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+</head>
+
+<body>
+  <div class="preloader"></div>
+  <button class="scroll-top scroll-to-target" data-target="html"><i class="fas fa-level-up-alt"></i></button>
+  <%- include("./partials/header.ejs")%>
+    <div class="breadcrumbs-title-area">
+      <div class="container">
+        <div class="breadcrumbs-title-content wow animate__animated animate__fadeInUp">
+          <h2>Вакансии</h2>
+          <ul>
+            <li><a href="/">Главная Страница</a></li>
+            <li>Вакансии</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <section class="error-section section-padding">
+      <style>
+        .card {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+
+        .card-body {
+          flex: 1;
+        }
+      </style>
+      <div class="container">
+        <div class="row">
+          <% for (const vacan of vacancy) { %>
+            <div class="col-md-3 col-sm-6 col-12 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <%=vacan.title%>
+                  </h5>
+                  <p class="card-text">
+                    <%=vacan.simpleDescription%>
+                  </p>
+                  <% const date=new Date(vacan.date); %>
+                    <p class="card-text">Nashr qilingan sana: <%= (date.getDate()).toString().padStart(2, '0' ) %>.<%=
+                          (date.getMonth() + 1).toString().padStart(2, '0' ) %>.<%= date.getFullYear() %>
+                    </p>
+                </div>
+                <div class="card-footer">
+                  <a href="/ru/vacancy/<%=vacan._id%>" class="btn btn-primary">Подробнее</a>
+                </div>
+              </div>
+            </div>
+            <% } %>
+        </div>
+      </div>
+    </section>
+    <%- include('./partials/footer.ejs')%>
+      <script src="/vendor/jquery/jquery.min.js"></script>
+      <script src="/vendor/waypoints/jquery-waypoints.min.js"></script>
+      <script src="/vendor/bootstrap/bootstrap.min.js"></script>
+      <script src="/vendor/wow/wow.js"></script>
+      <script src="/vendor/jquery-counterup/jquery-counterup.min.js"></script>
+      <script src="/vendor/venobox/venobox.min.js"></script>
+      <script src="/vendor/owl-carousel/owl-carousel.min.js"></script>
+      <script src="/js/main.js"></script>
+</body>
+
+</html>

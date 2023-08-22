@@ -23,6 +23,28 @@ router.get('/doctor/9', userController.doctor9);
 router.get('/doctor/10', userController.doctor10);
 router.get('/doctor/11', userController.doctor11);
 router.get('/doctor/12', userController.doctor12);
+
+router.get('/ru', userController.indexRU);
+router.get('/ru/about', userController.aboutRU);
+router.get('/ru/contact', userController.contactRU);
+router.get('/ru/doctor', userController.doctor);
+router.get('/ru/faq', userController.faq);
+router.get('/ru/vacancy', userController.vacancyRU);
+router.get('/ru/resume', userController.resumeRU);
+router.get('/ru/blog', userController.blogRU);
+router.get('/ru/blog/:id', userController.blogByIdRU);
+router.get('/ru/vacancy/:id', userController.vacancyIdRU);
+router.get('/ru/help/1', userController.help1);
+router.get('/ru/doctor/1', userController.doctor1);
+router.get('/ru/doctor/3', userController.doctor3);
+router.get('/ru/doctor/4', userController.doctor4);
+router.get('/ru/doctor/9', userController.doctor9);
+router.get('/ru/doctor/10', userController.doctor10);
+router.get('/ru/doctor/11', userController.doctor11);
+router.get('/ru/doctor/12', userController.doctor12);
+
+
+
 router.get('/admin', adminController.admin);
 router.post('/admin', adminController.adminPost);
 router.get('/admin/dashboard', adminController.adminDashboard);

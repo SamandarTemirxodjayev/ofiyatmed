@@ -13,6 +13,15 @@ exports.index = async (req, res) => {
     res.redirect('/404');
   }
 };
+exports.indexRU = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    const blogs = await Blogs.find({}).sort({ _id: -1 }).limit(3);
+    res.render('ru/index', { info, blogs, url: "index" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+};
 exports.indexPost = async (req, res) => {
   try {
     const email = Emails.findOne({ email: req.body.email });
@@ -37,10 +46,26 @@ exports.about = async (req, res) => {
     res.redirect('/404');
   }
 }
+exports.aboutRU = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('ru/about', { info, url: "about" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
 exports.contact = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});
     res.render('contact', { info, url: "contact" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.contactRU = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('ru/contact', { info, url: "contact" });
   } catch (error) {
     res.redirect('/404');
   }
@@ -90,12 +115,31 @@ exports.vacancy = async (req, res) => {
     res.redirect('/404');
   }
 }
+exports.vacancyRU = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    const vacancy = await Vacancy.find({});
+    res.render('ru/vacancy', { info, vacancy, url: "vacancy" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
 exports.vacancyId = async (req, res) => {
   try {
     const info = await Info.findOne({ id: 1 });
     const vacancy = await Vacancy.findById(req.params.id);
     if (!vacancy) return res.render('404', { info });
     res.render('vacancy-id', { info, vacancy, url: "vacancy" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+};
+exports.vacancyIdRU = async (req, res) => {
+  try {
+    const info = await Info.findOne({ id: 1 });
+    const vacancy = await Vacancy.findById(req.params.id);
+    if (!vacancy) return res.render('404', { info });
+    res.render('ru/vacancy-id', { info, vacancy, url: "vacancy" });
   } catch (error) {
     res.redirect('/404');
   }
@@ -172,11 +216,28 @@ exports.resume = async (req, res) => {
     res.redirect('/404');
   }
 }
+exports.resumeRU = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('ru/resume', { info, url: "vacancy" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
 exports.blog = async (req, res) => {
   try {
-    const info = await Info.find({});
+    const info = await Info.findOne({id: 1});
     const blogs = await Blogs.find({}).sort({ _id: -1 });
     res.render('blog', { info, blogs, url: "blog" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.blogRU = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    const blogs = await Blogs.find({}).sort({ _id: -1 });
+    res.render('ru/blog', { info, blogs, url: "blog" });
   } catch (error) {
     res.redirect('/404');
   }
@@ -187,6 +248,16 @@ exports.blogById = async (req, res) => {
     const blog = await Blogs.findById(req.params.id);
     if (!blog) return res.redirect('/404');
     res.render('blog-id', { info, blog, url: "blog" });
+  } catch (error) {
+    res.redirect('/404');// Render an error template or handle the error appropriately
+  }
+}
+exports.blogByIdRU = async (req, res) => {
+  try {
+    const info = await Info.findOne({ id: 1 });
+    const blog = await Blogs.findById(req.params.id);
+    if (!blog) return res.redirect('/404');
+    res.render('ru/blog-id', { info, blog, url: "blog" });
   } catch (error) {
     res.redirect('/404');// Render an error template or handle the error appropriately
   }
