@@ -98,6 +98,14 @@ exports.doctor = async (req, res) => {
     res.redirect('/404');
   }
 };
+exports.doctorRU = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('ru/doctor', { info, url: "doctor" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+};
 exports.faq = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});
@@ -160,6 +168,14 @@ exports.doctor1 = async (req, res) => {
     res.redirect('/404');
   }
 }
+exports.doctor2 = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('doctor/2', { info, url: "doctor" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
 exports.doctor3 = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});
@@ -172,6 +188,38 @@ exports.doctor4 = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});
     res.render('doctor/4', { info, url: "doctor" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.doctor5 = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('doctor/5', { info, url: "doctor" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.doctor6 = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('doctor/6', { info, url: "doctor" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.doctor7 = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('doctor/7', { info, url: "doctor" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.doctor8 = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('doctor/8', { info, url: "doctor" });
   } catch (error) {
     res.redirect('/404');
   }
