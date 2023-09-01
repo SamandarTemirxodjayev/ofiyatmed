@@ -126,6 +126,14 @@ exports.faq = async (req, res) => {
     res.redirect('/404');
   }
 }
+exports.faqRU = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('ru/faq', { info, url: "faq" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
 exports.vacancy = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});

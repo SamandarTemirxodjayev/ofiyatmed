@@ -37,7 +37,7 @@ router.get('/ru', userController.indexRU);
 router.get('/ru/about', userController.aboutRU);
 router.get('/ru/contact', userController.contactRU);
 router.get('/ru/doctor', userController.doctorRU);
-router.get('/ru/faq', userController.faq);
+router.get('/ru/faq', userController.faqRU);
 router.get('/ru/vacancy', userController.vacancyRU);
 router.get('/ru/resume', userController.resumeRU);
 router.get('/ru/blog', userController.blogRU);
