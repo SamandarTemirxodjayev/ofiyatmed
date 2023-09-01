@@ -16,18 +16,22 @@ router.get('/blog', userController.blog);
 router.get('/blog/:id', userController.blogById);
 router.get('/vacancy/:id', userController.vacancyId);
 router.get('/help/1', userController.help1);
-router.get('/doctor/1', userController.doctor1);
-router.get('/doctor/2', userController.doctor2);
-router.get('/doctor/3', userController.doctor3);
-router.get('/doctor/4', userController.doctor4);
-router.get('/doctor/5', userController.doctor5);
-router.get('/doctor/6', userController.doctor6);
-router.get('/doctor/7', userController.doctor7);
-router.get('/doctor/8', userController.doctor8);
-router.get('/doctor/9', userController.doctor9);
-router.get('/doctor/10', userController.doctor10);
-router.get('/doctor/11', userController.doctor11);
-router.get('/doctor/12', userController.doctor12);
+
+router.get('/doctor/:id', async (req, res) => {
+  try {
+    await userController.renderDoctor(res, req.params.id, false);
+  } catch (error) {
+    res.redirect('/404');
+  }
+});
+
+router.get('/ru/doctor/:id', async (req, res) => {
+  try {
+    await userController.renderDoctor(res, req.params.id, true);
+  } catch (error) {
+    res.redirect('/404');
+  }
+});
 
 router.get('/ru', userController.indexRU);
 router.get('/ru/about', userController.aboutRU);
@@ -40,14 +44,6 @@ router.get('/ru/blog', userController.blogRU);
 router.get('/ru/blog/:id', userController.blogByIdRU);
 router.get('/ru/vacancy/:id', userController.vacancyIdRU);
 router.get('/ru/help/1', userController.help1);
-router.get('/ru/doctor/1', userController.doctor1);
-router.get('/ru/doctor/3', userController.doctor3);
-router.get('/ru/doctor/4', userController.doctor4);
-router.get('/ru/doctor/9', userController.doctor9);
-router.get('/ru/doctor/10', userController.doctor10);
-router.get('/ru/doctor/11', userController.doctor11);
-router.get('/ru/doctor/12', userController.doctor12);
-
 
 
 router.get('/admin', adminController.admin);

@@ -4,6 +4,18 @@ const axios = require("axios");
 const Vacancy = require("../models/Vacancy");
 const Blogs = require("../models/Blog");
 
+const renderTemplate = async (res, template, data) => {
+  try {
+    const info = await Info.findOne({ id: 1 });
+    res.render(template, { info, ...data });
+  } catch (error) {
+    res.redirect('/404');
+  }
+};
+exports.renderDoctor = async (res, doctorId, lang) => {
+  const template = lang ? `ru/doctor/${doctorId}` : `doctor/${doctorId}`;
+  renderTemplate(res, template, { url: "doctor" });
+};
 exports.index = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});
@@ -160,102 +172,6 @@ exports.help1 = async (req, res) => {
     res.redirect('/404');
   }
 }
-exports.doctor1 = async (req, res) => {
-  try {
-    const info = await Info.findOne({id: 1});
-    res.render('doctor/1', { info, url: "doctor" });
-  } catch (error) {
-    res.redirect('/404');
-  }
-}
-exports.doctor2 = async (req, res) => {
-  try {
-    const info = await Info.findOne({id: 1});
-    res.render('doctor/2', { info, url: "doctor" });
-  } catch (error) {
-    res.redirect('/404');
-  }
-}
-exports.doctor3 = async (req, res) => {
-  try {
-    const info = await Info.findOne({id: 1});
-    res.render('doctor/3', { info, url: "doctor" });
-  } catch (error) {
-    res.redirect('/404');
-  }
-}
-exports.doctor4 = async (req, res) => {
-  try {
-    const info = await Info.findOne({id: 1});
-    res.render('doctor/4', { info, url: "doctor" });
-  } catch (error) {
-    res.redirect('/404');
-  }
-}
-exports.doctor5 = async (req, res) => {
-  try {
-    const info = await Info.findOne({id: 1});
-    res.render('doctor/5', { info, url: "doctor" });
-  } catch (error) {
-    res.redirect('/404');
-  }
-}
-exports.doctor6 = async (req, res) => {
-  try {
-    const info = await Info.findOne({id: 1});
-    res.render('doctor/6', { info, url: "doctor" });
-  } catch (error) {
-    res.redirect('/404');
-  }
-}
-exports.doctor7 = async (req, res) => {
-  try {
-    const info = await Info.findOne({id: 1});
-    res.render('doctor/7', { info, url: "doctor" });
-  } catch (error) {
-    res.redirect('/404');
-  }
-}
-exports.doctor8 = async (req, res) => {
-  try {
-    const info = await Info.findOne({id: 1});
-    res.render('doctor/8', { info, url: "doctor" });
-  } catch (error) {
-    res.redirect('/404');
-  }
-}
-exports.doctor9 = async (req, res) => {
-  try {
-    const info = await Info.findOne({id: 1});
-    res.render('doctor/9', { info, url: "doctor" });
-  } catch (error) {
-    res.redirect('/404');
-  }
-}
-exports.doctor10 = async (req, res) => {
-  try {
-    const info = await Info.findOne({id: 1});
-    res.render('doctor/10', { info, url: "doctor" });
-  } catch (error) {
-    res.redirect('/404');
-  }
-}
-exports.doctor11 = async (req, res) => {
-  try {
-    const info = await Info.findOne({id: 1});
-    res.render('doctor/11', { info, url: "doctor" });
-  } catch (error) {
-    res.redirect('/404');
-  }
-}
-exports.doctor12 = async (req, res) => {
-  try {
-    const info = await Info.findOne({id: 1});
-    res.render('doctor/12', { info, url: "doctor" });
-  } catch (error) {
-    res.redirect('/404');
-  }
-}
 exports.resume = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});
@@ -297,7 +213,7 @@ exports.blogById = async (req, res) => {
     if (!blog) return res.redirect('/404');
     res.render('blog-id', { info, blog, url: "blog" });
   } catch (error) {
-    res.redirect('/404');// Render an error template or handle the error appropriately
+    res.redirect('/404');
   }
 }
 exports.blogByIdRU = async (req, res) => {
@@ -307,6 +223,6 @@ exports.blogByIdRU = async (req, res) => {
     if (!blog) return res.redirect('/404');
     res.render('ru/blog-id', { info, blog, url: "blog" });
   } catch (error) {
-    res.redirect('/404');// Render an error template or handle the error appropriately
+    res.redirect('/404');
   }
 }
