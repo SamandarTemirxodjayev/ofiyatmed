@@ -180,6 +180,22 @@ exports.help1 = async (req, res) => {
     res.redirect('/404');
   }
 }
+exports.help2 = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('help/2', { info, url: "help" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.help3 = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('help/3', { info, url: "help" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
 exports.resume = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});

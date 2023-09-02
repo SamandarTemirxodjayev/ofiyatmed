@@ -16,6 +16,8 @@ router.get('/blog', userController.blog);
 router.get('/blog/:id', userController.blogById);
 router.get('/vacancy/:id', userController.vacancyId);
 router.get('/help/1', userController.help1);
+router.get('/help/2', userController.help2);
+router.get('/help/3', userController.help3);
 
 router.get('/doctor/:id', async (req, res) => {
   try {
