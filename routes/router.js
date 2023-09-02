@@ -18,6 +18,9 @@ router.get('/vacancy/:id', userController.vacancyId);
 router.get('/help/1', userController.help1);
 router.get('/help/2', userController.help2);
 router.get('/help/3', userController.help3);
+router.get('/help/4', userController.help4);
+router.get('/help/5', userController.help5);
+router.get('/help/6', userController.help6);
 
 router.get('/doctor/:id', async (req, res) => {
   try {
@@ -45,7 +48,12 @@ router.get('/ru/resume', userController.resumeRU);
 router.get('/ru/blog', userController.blogRU);
 router.get('/ru/blog/:id', userController.blogByIdRU);
 router.get('/ru/vacancy/:id', userController.vacancyIdRU);
-router.get('/ru/help/1', userController.help1);
+router.get('/ru/help/1', userController.help1RU);
+router.get('/ru/help/2', userController.help2RU);
+router.get('/ru/help/3', userController.help3RU);
+router.get('/ru/help/4', userController.help4RU);
+router.get('/ru/help/5', userController.help5RU);
+router.get('/ru/help/6', userController.help6RU);
 
 
 router.get('/admin', adminController.admin);

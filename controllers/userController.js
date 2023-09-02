@@ -196,6 +196,78 @@ exports.help3 = async (req, res) => {
     res.redirect('/404');
   }
 }
+exports.help4 = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('help/4', { info, url: "help" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.help5 = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('help/5', { info, url: "help" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.help6 = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('help/6', { info, url: "help" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.help1RU = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('ru/help/1', { info, url: "help" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.help2RU = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('ru/help/2', { info, url: "help" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.help3RU = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('ru/help/3', { info, url: "help" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.help4RU = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('ru/help/4', { info, url: "help" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.help5RU = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('ru/help/5', { info, url: "help" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.help6RU = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('ru/help/6', { info, url: "help" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
 exports.resume = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});
