@@ -102,6 +102,29 @@ exports.contactPost = async (req, res) => {
     res.status(500).send('Error sending message to Telegram.');
   }
 };
+
+exports.resumePost = async (req, res) => {
+  const { name, phone_number, file, message } = req.body;
+  console.log(req.body);
+
+  const botToken = '6365368968:AAFA9Pjobe3xJ1SSvKpOhNPcV5bJzJz6KYI';
+  const chatId = '@LOLvoyco467';
+
+  const messages = `Ism: ${name}\nTelefon Nomer: ${phone_number}\nFayl URL: ${file}\nXabar: ${message}`;
+
+  try {
+    await axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+      chat_id: chatId,
+      text: messages,
+    });
+
+    res.json({ text: "Xabar Muvaffiqatli jo'natildi" });
+  } catch (error) {
+    console.error('Error sending message to Telegram:', error);
+    res.status(500).send('Error sending message to Telegram.');
+  }
+}
+
 exports.doctor = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});
@@ -276,6 +299,7 @@ exports.resume = async (req, res) => {
     res.redirect('/404');
   }
 }
+
 exports.resumeRU = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});

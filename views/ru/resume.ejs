@@ -76,7 +76,7 @@
           </div>
           <div class="col-lg-7 col-md-12 wow animate__animated animate__fadeInUp">
             <div class="contact-form">
-              <form id="contactForm" action="/contact" method="post">
+              <form id="contactForm">
                 <div class="row">
                   <div class="col-lg-12 col-md-12">
                     <div class="form-group">
@@ -93,24 +93,21 @@
                       <div class="help-block with-errors"></div>
                     </div>
                   </div>
-                  <div class="col-lg-6 col-md-6">
-                    <div class="form-group">
-                      <input type="text" name="msg_subject" id="msg_subject" class="form-control" required
-                        data-error="Iltimos xabaringiz mavzusini kiriting"
-                        placeholder="Напишите свою профессию(кардиолог, невропатолог)">
-                      <div class="help-block with-errors"></div>
+                  <div class="col-lg-6 col-md-6 mb-3">
+                    <div class="input-group custom-file-button">
+                      <label class="input-group-text" for="file">Выберите Файл Резюме</label>
+                      <input type="file" class="form-control" id="file" name="file" style="padding-top: 0.85em;">
                     </div>
                   </div>
                   <div class="col-lg-12 col-md-12">
                     <div class="form-group">
                       <textarea name="message" class="form-control" id="message" cols="30" rows="5" required
-                        data-error="Iltimos xabaringizni kiriting"
-                        placeholder="Краткая информация о себе"></textarea>
+                        data-error="Iltimos xabaringizni kiriting" placeholder="Краткая информация о себе"></textarea>
                       <div class="help-block with-errors"></div>
                     </div>
                   </div>
                   <div class="col-lg-12 col-md-12">
-                    <button type="submit" class="btn btn-primary">Подтверждение</button>
+                    <button type="submit" id="submitButton" class="btn btn-primary">Подтвердить</button>
                   </div>
                 </div>
               </form>
@@ -129,6 +126,75 @@
       <script src="/vendor/venobox/venobox.min.js"></script>
       <script src="/vendor/owl-carousel/owl-carousel.min.js"></script>
       <script src="/js/main.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script>
+        $(document).ready(function () {
+          $("form").submit(async function (event) {
+            event.preventDefault();
+
+            const submitButton = $("#submitButton");
+            submitButton.text("Loading...");
+            submitButton.prop("disabled", true);
+
+            try {
+              const response1 = await fetch("https://empower.uz/upload/ofiyat", {
+                method: "POST",
+                body: new FormData(this),
+              });
+
+              if (!response1.ok) {
+                throw new Error("Error uploading file");
+              }
+
+              const data1 = await response1.json();
+
+              const postData = {
+                file: data1.fileUrl,
+                name: $("#name").val(),
+                phone_number: $("#phone_number").val(),
+                message: $("#message").val(),
+              };
+
+              const response2 = await fetch("/resume", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(postData),
+              });
+
+              if (!response2.ok) {
+                throw new Error("Error sending data to /resume");
+              }
+
+              const data2 = await response2.json();
+
+              await Swal.fire("Успешно", "Ваше сообщение отправлено", "success");
+              window.location.href = "/ru/resume";
+            } catch (error) {
+              await Swal.fire("Ошибка", "Ошибка", "error");
+            }
+          });
+        });
+      </script>
 </body>
 
 </html>
+<style>
+  .custom-file-button input[type="file"] {
+    margin-left: -2px !important;
+  }
+
+  .custom-file-button input[type="file"]::-webkit-file-upload-button {
+    display: none;
+  }
+
+  .custom-file-button input[type="file"]::file-selector-button {
+    display: none;
+  }
+
+  .custom-file-button:hover label {
+    background-color: #dde0e3;
+    cursor: pointer;
+  }
+</style>

@@ -1,11 +1,11 @@
 const express = require('express');
 const router = require('./routes/router');
 const mongoose = require("mongoose");
-const bodyParser = require('body-parser');
 const Info = require('./models/Info');
-const ejs = require('ejs');
+const bodyParser = require('body-parser');
 
 const app = express();
+app.use(express.urlencoded({ extended: true }));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

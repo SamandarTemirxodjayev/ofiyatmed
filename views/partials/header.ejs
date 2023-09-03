@@ -20,20 +20,21 @@
                       class="menu-item-has-children" <% } %> >
                         <a href="/vacancy">Vakansiya</a>
                         <ul class="sub-menu">
-                          <li><a href="/vacancy">Vakansiya</a></li>
-                          <li><a href="/resume">Rezume Yuborish</a></li>
+                          <li><a href="/vacancy" style="font-weight: 600;">Vakansiya</a></li>
+                          <li><a href="/resume" style="font-weight: 600;">Rezume Yuborish</a></li>
                         </ul>
                   </li>
                   <li <% if (url==="blog" ) { %> class="active" <% } %> ><a href="/blog">Yangiliklar</a></li>
                   <li <% if (url==="contact" ) { %> class="active" <% } %> ><a href="/contact">Bog'lanish</a></li>
-                  <li><a href="/ru/<%= url == "index" ? "" : url %>"><img src="/images/russia.png" alt="ofiyatmed"
-                        class="mx-2" style="margin-top: -10px;">RU</a>
+                  <li><a href="/ru/<%= url == "index" ? "" : url %>" ><img src="/images/russia.png" alt="ofiyatmed"
+                        class="mx-2 p-1" style="margin-top: -10px;">RU</a>
                   </li>
                 </ul>
               </div>
               <div class="header-action d-none d-md-block">
                 <ul class="list-wrap">
-                  <li class="header-btn"><a href="/contact" class="button-one">Bog'lanish</a></li>
+                  <li class="header-btn"><a href="/contact" class="button-one" style="font-weight: 600;">Bog'lanish</a>
+                  </li>
                 </ul>
               </div>
             </nav>

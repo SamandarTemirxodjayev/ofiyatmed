@@ -12,6 +12,7 @@ router.get('/doctor', userController.doctor);
 router.get('/faq', userController.faq);
 router.get('/vacancy', userController.vacancy);
 router.get('/resume', userController.resume);
+router.post('/resume', userController.resumePost);
 router.get('/blog', userController.blog);
 router.get('/blog/:id', userController.blogById);
 router.get('/vacancy/:id', userController.vacancyId);
