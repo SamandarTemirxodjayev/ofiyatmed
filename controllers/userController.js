@@ -4,6 +4,9 @@ const axios = require("axios");
 const Vacancy = require("../models/Vacancy");
 const Blogs = require("../models/Blog");
 
+const botToken = '6365368968:AAFA9Pjobe3xJ1SSvKpOhNPcV5bJzJz6KYI';
+
+
 const renderTemplate = async (res, template, data) => {
   try {
     const info = await Info.findOne({ id: 1 });
@@ -85,14 +88,17 @@ exports.contactRU = async (req, res) => {
 exports.contactPost = async (req, res) => {
   const { name, phone_number, msg_subject, message } = req.body;
 
-  const botToken = '6365368968:AAFA9Pjobe3xJ1SSvKpOhNPcV5bJzJz6KYI';
   const chatId = '@LOLvoyco467';
 
-  const messages = `Name: ${name}\nPhone: ${phone_number}\nSubject: ${msg_subject}\nText: ${message}`;
+  const messages = `Ism: ${name}\nTelefon Raqam: ${phone_number}\nMavzu: ${msg_subject}\nXabar: ${message}`;
 
   try {
     await axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
       chat_id: chatId,
+      text: messages,
+    });
+    await axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+      chat_id: "@ofiyat_med_group",
       text: messages,
     });
 
@@ -107,7 +113,6 @@ exports.resumePost = async (req, res) => {
   const { name, phone_number, file, message } = req.body;
   console.log(req.body);
 
-  const botToken = '6365368968:AAFA9Pjobe3xJ1SSvKpOhNPcV5bJzJz6KYI';
   const chatId = '@LOLvoyco467';
 
   const messages = `Ism: ${name}\nTelefon Nomer: ${phone_number}\nFayl URL: ${file}\nXabar: ${message}`;
@@ -239,6 +244,22 @@ exports.help6 = async (req, res) => {
   try {
     const info = await Info.findOne({id: 1});
     res.render('help/6', { info, url: "help" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.service = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('service', { info, url: "service" });
+  } catch (error) {
+    res.redirect('/404');
+  }
+}
+exports.serviceRU = async (req, res) => {
+  try {
+    const info = await Info.findOne({id: 1});
+    res.render('ru/service', { info, url: "service" });
   } catch (error) {
     res.redirect('/404');
   }

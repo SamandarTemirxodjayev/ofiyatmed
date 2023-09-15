@@ -22,6 +22,8 @@ router.get('/help/3', userController.help3);
 router.get('/help/4', userController.help4);
 router.get('/help/5', userController.help5);
 router.get('/help/6', userController.help6);
+router.get('/service', userController.service);
+router.get('/ru/service', userController.serviceRU);
 
 router.get('/doctor/:id', async (req, res) => {
   try {
