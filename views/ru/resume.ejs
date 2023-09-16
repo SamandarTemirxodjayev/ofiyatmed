@@ -1,27 +1,29 @@
-<!DOCTYPE html>
-<html class="no-js" lang="uz">
+<!doctype html>
+<html class="no-js" lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Ofiyat Med - Резюме</title>
-  <meta name="description" content="Ofiyat Med - Резюме" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
-  <link rel="stylesheet" href="/vendor/animate/animate.min.css" />
-  <link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css" />
-  <link rel="stylesheet" href="/vendor/owl-carousel/owl-carousel.min.css" />
-  <link rel="stylesheet" href="/vendor/venobox/venobox.css" />
-  <link rel="stylesheet" href="/vendor/font-awesome/font-awesome.css" />
-  <link rel="stylesheet" href="/css/style.css" />
-  <link rel="stylesheet" href="/css/responsive.css" />
+  <meta name="description" content="OfiyatMed - Часто задаваемые вопросы">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png">
+  <link rel="stylesheet" href="/vendor/animate/animate.min.css">
+  <link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/vendor/owl-carousel/owl-carousel.min.css">
+  <link rel="stylesheet" href="/vendor/venobox/venobox.css">
+  <link rel="stylesheet" href="/vendor/font-awesome/font-awesome.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
 </head>
 
 <body>
   <div class="preloader"></div>
-  <button class="scroll-top scroll-to-target" data-target="html"><i class="fas fa-level-up-alt"></i></button>
+  <button class="scroll-top scroll-to-target" data-target="html">
+    <i class="fas fa-level-up-alt"></i>
+  </button>
   <%- include("./partials/header.ejs")%>
     <div class="breadcrumbs-title-area">
       <div class="container">
@@ -34,7 +36,6 @@
         </div>
       </div>
     </div>
-
     <section class="contact-area section-padding">
       <div class="container">
         <div class="section-title pb-10 wow animate__animated animate__fadeInUp">
@@ -76,11 +77,11 @@
           </div>
           <div class="col-lg-7 col-md-12 wow animate__animated animate__fadeInUp mt-5-mobile">
             <div class="contact-form">
-              <form id="contactForm">
+              <form id="contactForm" class="mt-40-mobile">
                 <div class="row">
                   <div class="col-lg-12 col-md-12">
                     <div class="form-group">
-                      <input type="text" name="name" id="name" class="form-control" required
+                      <input type="text" name="name" id="name" class="form-control  mt-5-mobile" required
                         data-error="Iltimos Ismingizni yozing" placeholder="Ваше имя">
                       <div class="help-block with-errors"></div>
                     </div>
@@ -117,66 +118,65 @@
       </div>
     </section>
 
-    <%- include('./partials/footer.ejs')%>
-      <script src="/vendor/jquery/jquery.min.js"></script>
-      <script src="/vendor/waypoints/jquery-waypoints.min.js"></script>
-      <script src="/vendor/bootstrap/bootstrap.min.js"></script>
-      <script src="/vendor/wow/wow.js"></script>
-      <script src="/vendor/jquery-counterup/jquery-counterup.min.js"></script>
-      <script src="/vendor/venobox/venobox.min.js"></script>
-      <script src="/vendor/owl-carousel/owl-carousel.min.js"></script>
-      <script src="/js/main.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-      <script>
-        $(document).ready(function () {
-          $("form").submit(async function (event) {
-            event.preventDefault();
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/waypoints/jquery-waypoints.min.js"></script>
+    <script src="/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="/vendor/wow/wow.js"></script>
+    <script src="/vendor/jquery-counterup/jquery-counterup.min.js"></script>
+    <script src="/vendor/venobox/venobox.min.js"></script>
+    <script src="/vendor/owl-carousel/owl-carousel.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      $(document).ready(function () {
+        $("form").submit(async function (event) {
+          event.preventDefault();
 
-            const submitButton = $("#submitButton");
-            submitButton.text("Loading...");
-            submitButton.prop("disabled", true);
+          const submitButton = $("#submitButton");
+          submitButton.text("Loading...");
+          submitButton.prop("disabled", true);
 
-            try {
-              const response1 = await fetch("https://empower.uz/upload/ofiyat", {
-                method: "POST",
-                body: new FormData(this),
-              });
+          try {
+            const response1 = await fetch("https://empower.uz/upload/ofiyat", {
+              method: "POST",
+              body: new FormData(this),
+            });
 
-              if (!response1.ok) {
-                throw new Error("Error uploading file");
-              }
-
-              const data1 = await response1.json();
-
-              const postData = {
-                file: data1.fileUrl,
-                name: $("#name").val(),
-                phone_number: $("#phone_number").val(),
-                message: $("#message").val(),
-              };
-
-              const response2 = await fetch("/resume", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(postData),
-              });
-
-              if (!response2.ok) {
-                throw new Error("Error sending data to /resume");
-              }
-
-              const data2 = await response2.json();
-
-              await Swal.fire("Успешно", "Ваше сообщение отправлено", "success");
-              window.location.href = "/ru/resume";
-            } catch (error) {
-              await Swal.fire("Ошибка", "Ошибка", "error");
+            if (!response1.ok) {
+              throw new Error("Error uploading file");
             }
-          });
+
+            const data1 = await response1.json();
+
+            const postData = {
+              file: data1.fileUrl,
+              name: $("#name").val(),
+              phone_number: $("#phone_number").val(),
+              message: $("#message").val(),
+            };
+
+            const response2 = await fetch("/resume", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(postData),
+            });
+
+            if (!response2.ok) {
+              throw new Error("Error sending data to /resume");
+            }
+
+            const data2 = await response2.json();
+
+            await Swal.fire("Успешно", "Ваше сообщение отправлено", "success");
+            window.location.href = "/ru/resume";
+          } catch (error) {
+            await Swal.fire("Ошибка", "Ошибка", "error");
+          }
         });
-      </script>
+      });
+    </script>
 </body>
 
 </html>
@@ -198,11 +198,11 @@
     cursor: pointer;
   }
 
-  .mt-5-mobile {
-    padding-top: 50px;
+  .mt-40-mobile {
+    margin-top: 40px;
 
     @media (min-width: 767.98px) {
-      padding-top: 0;
+      margin-top: 0;
     }
   }
 </style>

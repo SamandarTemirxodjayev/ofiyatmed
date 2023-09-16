@@ -18,7 +18,7 @@ const infoSchema = new mongoose.Schema({
   },
   addressRU: {
     type: String,
-    default: "Город Ташкент, Сергиевский район, ул. 5А, дом 105а"
+    default: "Город Ташкент, Сергелийский район, ул. 5А, дом 105а"
   },
   google_address: {
     type: String,
