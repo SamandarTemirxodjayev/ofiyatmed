@@ -9,7 +9,7 @@ exports.admin = async (req, res) => {
   res.render('admin');
 }
 exports.adminPost = async (req, res) => {
-  if (req.body.username == 'admin' && req.body.password == 'admin') {
+  if (req.body.username == 'admin' && req.body.password == 'yian12345') {
     res.json({ success: true });
   } else {
     res.json({ success: false });

@@ -98,7 +98,7 @@ exports.contactPost = async (req, res) => {
       text: messages,
     });
     await axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-      chat_id: "@ofiyat_med_group",
+      chat_id: "5420199738",
       text: messages,
     });
 
